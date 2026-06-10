@@ -13,13 +13,15 @@ public class EvaluacionFisica {
     private double tallaCm;
     private double imc;
     private String clasificacion;
+    private Instructor instructor;
 
-    public EvaluacionFisica(double pesoKg, double tallaCm) {
+    public EvaluacionFisica(double pesoKg, double tallaCm, Instructor instructor) {
         this.pesoKg  = pesoKg;
         this.tallaCm = tallaCm;
+        this.instructor = instructor;
         calcularIMC();
     }
-    
+     
     // Getters
     public double getPesoKg(){
         return pesoKg;
@@ -32,6 +34,9 @@ public class EvaluacionFisica {
     }
     public String getClasificacion(){
         return clasificacion; 
+    }
+    public Instructor getInstructor() {
+        return instructor;
     }
 
     // Setters 
@@ -51,6 +56,10 @@ public class EvaluacionFisica {
 
     public void setClasificacion(String clasificacion) {
         this.clasificacion = clasificacion;
+    }
+    
+    public void setInstructor(Instructor instructor) {
+        this.instructor = instructor;
     }
 
     // Metodo privado - el usuario NO puede llamarlo
@@ -78,6 +87,7 @@ public class EvaluacionFisica {
         System.out.println("Talla         : " + this.tallaCm + " cm");
         System.out.printf ("IMC           : " + this.imc);
         System.out.println("Clasificacion : " + this.clasificacion);
+        System.out.println("Instructor    : " + instructor.getNombre() + " " + instructor.getApellidPate());
     }
     
 }

@@ -25,7 +25,7 @@ public class PowerGymManager {
 
         while (opcion != 6) {
             System.out.println("\n========================================");
-            System.out.println("   PowerGym Manager - MENU PRINCIPAL      ");
+            System.out.println("         GIMNASIO - MENU PRINCIPAL      ");
             System.out.println("========================================");
             System.out.println("  1: Registrar socio");
             System.out.println("  2: Buscar socio por DNI");
@@ -39,34 +39,46 @@ public class PowerGymManager {
             sc.nextLine();
 
             if (opcion == 1) {
-                System.out.print("  Nombre      : "); 
+                System.out.print("Tipo de documento     : ");
+                String tipoDoc = sc.nextLine();
+                System.out.print("Número de documento   : ");
+                String nroDoc = sc.nextLine();
+                System.out.print("Nombre                : "); 
                 String nombre   = sc.nextLine();
-                System.out.print("  Apellido    : "); 
-                String apellido = sc.nextLine();
-                System.out.print("  DNI         : "); 
-                String dni      = sc.nextLine();
-                System.out.print("  Edad        : "); 
-                int edad        = sc.nextInt();
-                System.out.print("  Peso (kg)   : "); 
-                double peso     = sc.nextDouble();
-                System.out.print("  Talla (cm)  : "); 
-                double talla    = sc.nextDouble();
+                System.out.print("Apellido paterno      : "); 
+                String apellidoPate = sc.nextLine();
+                System.out.print("Apellido materno      : "); 
+                String apellidoMate = sc.nextLine();
+                System.out.print("Edad                  : "); 
+                int edad = sc.nextInt();
+                System.out.print("Peso (kg)             : "); 
+                double peso = sc.nextDouble();
+                System.out.print("Talla (cm)            : "); 
+                double talla = sc.nextDouble();
                 sc.nextLine();
-                System.out.print("  Membresia (Basica/VIP): "); 
+                System.out.print("Membresia (Basica/VIP): "); 
                 String membresia = sc.nextLine();
-                System.out.print("  Meses       : "); 
+                System.out.print("Meses                 : "); 
                 int meses       = sc.nextInt();
                 sc.nextLine();
-                System.out.print("  Talla polo (S/M/L/XL): "); 
+                System.out.print("Talla polo (S/M/L/XL) : "); 
                 String tallaPolo = sc.nextLine();
+                System.out.println("Instructor que realiza la evaluación:");
+                System.out.println("1. Carlos Perez");
+                System.out.println("2. Ana Torres");
+                System.out.print("Seleccione: ");
+
+                int codInstructor = sc.nextInt();
+                sc.nextLine();
+                Instructor instructor = gestion.obtenerInstructor(codInstructor);
 
                 if (polos.getStockDeTalla(tallaPolo) <= 0) {
-                    System.out.println("  Sin stock para talla " + tallaPolo + ". No se puede registrar.");
+                    System.out.println("Sin stock para talla " + tallaPolo + ". No se puede registrar.");
                 } else {
-                    Socio nuevo = gestion.registrarSocio(nombre, apellido, dni, edad,
-                                                         peso, talla, membresia, meses, tallaPolo);
+                    Socio nuevo = gestion.registrarSocio(tipoDoc,nroDoc, nombre, apellidoPate, apellidoMate, edad,
+                                                         peso, talla, membresia, meses, tallaPolo, instructor);
                     polos.entregarPolo(tallaPolo);
-                    System.out.println("  Socio registrado con codigo: " + nuevo.getCodigoSocio());
+                    System.out.println("Socio registrado con codigo: " + nuevo.getCodigoSocio());
                     nuevo.mostrarFicha();
                 }
 

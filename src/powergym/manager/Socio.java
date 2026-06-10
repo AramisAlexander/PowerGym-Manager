@@ -14,18 +14,19 @@ public class Socio extends Persona {
     private Membresia membresia;
     private String tallaPolo;  
 
-    public Socio(int codigoSocio,
-                 String nombre, String apellido, String dni, int edad,
-                 double pesoKg, double tallaCm,
-                 String tipoMembresia, int mesesMembresia,
-                 String tallaPolo) {
-
-        super(nombre, apellido, dni, edad);
+    public Socio(int codigoSocio, String tipoDoc, String nroDoc, String nombre, String 
+            apellidPate, String apellidmate, int edad, double pesoKg, double tallaCm,
+            String tipoMembresia, int mesesMembresia, String tallaPolo, Instructor instructor) {
+        
+        
+        super(tipoDoc, nroDoc, nombre, apellidPate, apellidmate, edad);
         this.codigoSocio = codigoSocio;
-        this.evaluacion  = new EvaluacionFisica(pesoKg, tallaCm);
-        this.membresia   = new Membresia(tipoMembresia, mesesMembresia);
-        this.tallaPolo   = tallaPolo;
+        this.evaluacion = new EvaluacionFisica(pesoKg,tallaCm, instructor);
+        this.membresia = new Membresia(tipoMembresia, mesesMembresia);
+        this.tallaPolo = tallaPolo;
     }
+
+    
 
     // Getters
     public int getCodigoSocio(){ 
@@ -63,13 +64,13 @@ public class Socio extends Persona {
         System.out.println("========================================");
         System.out.println("     FICHA DEL SOCIO - POWER HOUSE     ");
         System.out.println("========================================");
-        System.out.println("Codigo        : " + this.codigoSocio);
+        System.out.println("Codigo        : " + codigoSocio);
         mostrarDatos();       // metodo heredado de Persona
         System.out.println("----------------------------------------");
         evaluacion.mostrarEvaluacion();
         System.out.println("----------------------------------------");
         membresia.mostrarMembresia();
-        System.out.println("Talla polo    : " + this.tallaPolo);
+        System.out.println("Talla polo    : " + tallaPolo);
         System.out.println("========================================");
     }
 }
