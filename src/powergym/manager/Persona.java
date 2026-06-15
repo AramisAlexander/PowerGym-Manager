@@ -9,12 +9,12 @@ package powergym.manager;
  * @author ALEXANDER
  */
 public class Persona {
-    private String tipoDoc;
-    private String nroDoc;
-    private String nombre;
-    private String apellidPate;
-    private String apellidmate;
-    private int edad;
+    protected String tipoDoc;
+    protected String nroDoc;
+    protected String nombre;
+    protected String apellidPate;
+    protected String apellidmate;
+    protected int edad;
 
     public Persona(String tipoDoc, String nroDoc, String nombre, String apellidPate, String apellidmate, int edad) {
         this.tipoDoc = tipoDoc;

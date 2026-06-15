@@ -18,7 +18,7 @@ public class InventarioPolos {
         tallas.add("S");  stock.add(10);
         tallas.add("M");  stock.add(10);
         tallas.add("L");  stock.add(10);
-        tallas.add("XL"); stock.add(10);
+        tallas.add("XL"); stock.add(0);
     }
 
     public int getStockDeTalla(String talla) {

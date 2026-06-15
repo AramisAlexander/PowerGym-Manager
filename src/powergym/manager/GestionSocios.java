@@ -82,4 +82,7 @@ public class GestionSocios {
     }
     return null;
     }
+    public ArrayList<Socio> getSocios() {
+            return listaSocios;
+    }
 }
