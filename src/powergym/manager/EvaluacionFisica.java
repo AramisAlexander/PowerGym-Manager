@@ -5,6 +5,8 @@
 package powergym.manager;
 
 /**
+ * Clase que representa la evaluación física de un socio.
+ * Calcula automáticamente el IMC y su clasificación.
  *
  * @author ALEXANDER
  */
@@ -82,6 +84,7 @@ public class EvaluacionFisica {
         }
     }
 
+     // Metodo muestra los resultados de la evaluación física.
     public void mostrarEvaluacion() {
         System.out.println("Peso          : " + this.pesoKg + " kg");
         System.out.println("Talla         : " + this.tallaCm + " cm");

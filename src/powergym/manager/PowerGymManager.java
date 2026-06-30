@@ -15,7 +15,7 @@ public class PowerGymManager {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        FrmPowerGymManager appGym = new FrmPowerGymManager();
-        appGym.setVisible(true);
+        FrmLogin login = new FrmLogin();
+        login.setVisible(true);
     } 
 }

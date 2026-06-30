@@ -5,35 +5,40 @@
 package powergym.manager;
 
 /**
+ * Clase que representa la membresía de un socio en el gimnasio.
+ * Controla el tipo (Basica o VIP) y la duración en meses.
+ * Los socios VIP obtienen 15% de descuento en suplementos.
  *
  * @author ALEXANDER
  */
 public class Membresia {
-    private String tipo;         
+    //Atributos
+    private String tipo;
     private int    mesesDuracion;
 
+    //Constructor de Membresia.
     public Membresia(String tipo, int mesesDuracion) {
-        this.tipo          = tipo;
+        this.tipo = tipo;
         this.mesesDuracion = mesesDuracion;
     }
 
-    // Getters
-    public String getTipo(){
+    //GETTERS
+    public String getTipo() { 
         return tipo; 
     }
-    public int getMesesDuracion(){
+    public int getMesesDuracion() { 
         return mesesDuracion; 
     }
 
-    // Setters
-    public void setTipo(String tipo){ 
+    //SETTERS
+    public void setTipo(String tipo) { 
         this.tipo = tipo; 
     }
-    public void setMesesDuracion(int meses){
+    public void setMesesDuracion(int meses) { 
         this.mesesDuracion = meses; 
     }
 
-    // El descuento del 15% esta fijo en el codigo, nadie puede cambiarlo
+    //Metodo que calcula el precio final de un suplemento aplicando descuento VIP del 15%.
     public double calcularPrecioSuplemento(double precioBase) {
         double precioFinal;
         if (tipo.equals("VIP")) {
@@ -44,6 +49,7 @@ public class Membresia {
         return precioFinal;
     }
 
+    //Metodo que muestra los datos de la membresía.
     public void mostrarMembresia() {
         System.out.println("Membresia     : " + this.tipo);
         System.out.println("Duracion      : " + this.mesesDuracion + " meses");
@@ -53,5 +59,5 @@ public class Membresia {
             System.out.println("Beneficio     : Sin descuento en suplementos");
         }
     }
-    
 }
+
